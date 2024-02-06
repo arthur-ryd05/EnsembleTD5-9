@@ -19,7 +19,7 @@ void TP8Ex3();
 
 void tableau2D(int*** tableau2D, int* nbLigne, int* nbColonne);
 void remplirTableau2D(int*** tableau2D, int nbLigne, int nbColonne);
-void afficherTableau(int** tableau2D, int nbLigne, int nbColonne);
+void AfficherTableauTP8(int** tableau2D, int nbLigne, int nbColonne);
 void tableauCroissant();
 void libererMatrice(int ***matrice, int nbLignes);
 

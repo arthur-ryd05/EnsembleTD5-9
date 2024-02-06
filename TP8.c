@@ -17,7 +17,7 @@ void creerTab(int** tableau, int* entier){
 
 void libererTab(int **tab){
     free(*tab);
-    tab= NULL;
+    *tab= NULL;
 }
 
 void remplirTab(int *tab, int* taille){
@@ -57,7 +57,7 @@ void libererTabNotes(int **tableau) {
 void calculMoyenne(int *NbNotes, int **tab, float *moyenne) {
     int somme = 0; // bien initialiser a 0 pour pas avoir somme incorect
     for (int i = 0; i < *NbNotes; i++) {
-        printf("Saisissez la valeur %d: ", i + 1);
+        printf("Saisissez la valeur %d:", i + 1);
         scanf("%d", &(*tab)[i]);  // Utiliser le déréférencement pour accéder à la case mémoire correcte et ne pas créér d'erreur
         somme += (*tab)[i];       // Utiliser le déréférencement pour accéder à la valeur correcte et ne pas créér d'erreur
     }
@@ -107,7 +107,7 @@ void remplirTableau2D(int*** tableau2D, int nbLigne, int nbColonne){
     }
 }
 
-void afficherTableau(int** tableau2D, int nbLigne, int nbColonne){
+void AfficherTableauTP8(int** tableau2D, int nbLigne, int nbColonne){
     for (int i = 0; i < nbLigne; ++i) {
         for (int j = 0; j < nbColonne; ++j) {
             printf("%d,", tableau2D[i][j]);
@@ -136,7 +136,7 @@ void TP8Ex3(){
     int nbLigne, nbColone;
     tableau2D(&matrice,&nbLigne,&nbColone);
     remplirTableau2D(&matrice,nbLigne,nbColone);
-    afficherTableau(matrice, nbLigne, nbColone);
+    AfficherTableauTP8(matrice, nbLigne, nbColone);
     libererMatrice(&matrice,nbLigne);
 }
 

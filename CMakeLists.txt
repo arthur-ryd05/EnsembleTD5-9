@@ -13,4 +13,7 @@ add_executable(EnsembleTD main.c
         TP8.c
         TP8.h
         TP9.c
-        TP9.h)
+        TP9.h
+        TP10.c
+        TP10.h
+)

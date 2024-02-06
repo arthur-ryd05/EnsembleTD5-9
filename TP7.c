@@ -23,7 +23,7 @@ void SaisirPhrase(char* str, int TailleMax){
 int compteOccurence(char* str, char c){
     int compteur= 0;
     for(int i=0; str[i] != '\0'; i++){
-        if(str[i]== c){
+        if(str[i]== 'c'){
             compteur++;
         }
     }

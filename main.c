@@ -4,6 +4,7 @@
 #include "TP7.h"
 #include "TP8.h"
 #include "TP9.h"
+#include "TP10.h"
 
 int main() {
     int choixTP, choixEx;
@@ -107,6 +108,19 @@ int main() {
                     scanf("%d", &choixEx);
                     switch (choixEx) {
                         case 1: { TP9Ex1(); break; }
+                        case 0: { break; }
+                        default: { printf("Cet exercice n'existe pas.\n"); break; }
+                    }
+                } while (choixEx != 0);
+                break;
+            }
+            case 10: {
+                do {
+                    printf("Quel Exercice ? (0 pour quitter)\n");
+                    scanf("%d", &choixEx);
+                    switch (choixEx) {
+                        case 1: {ExoCours(); break; }
+                        case 2: {TpListeChainerMain(); break; }
                         case 0: { break; }
                         default: { printf("Cet exercice n'existe pas.\n"); break; }
                     }

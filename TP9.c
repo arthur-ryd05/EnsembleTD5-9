@@ -5,7 +5,7 @@
 #define MAX_CARACTERE 50
 #define NB_ETUDIANT 5
 
-void Saisir(Etudiant etudiant[], int* nbEtudiant){
+void Saisir(etudiant etudiant[], int* nbEtudiant){
     printf("Saisir le nombre d'eleves :\n");
     scanf("%d",nbEtudiant);
     fflush(stdin); //histoire de vider le buffer pour le fgets
@@ -21,14 +21,14 @@ void Saisir(Etudiant etudiant[], int* nbEtudiant){
     }
 }
 
-void Afficher(Etudiant etudiant[], int nbEtudiant){
+void Afficher(etudiant etudiant[], int nbEtudiant){
     for(int i=0; i<nbEtudiant; i++) {
         printf("%s: %f %f %f %f\n",etudiant[i].prenom,etudiant[i].noteElec,etudiant[i].noteMaths,
                etudiant[i].notePhysique,etudiant[i].noteInfo);
     }
 }
 
-void SauvegarderTexte(Etudiant etudiant[], int nbEtudiant){
+void SauvegarderTexte(etudiant etudiant[], int nbEtudiant){
     FILE* pf = fopen ("../notes.txt","w");
     if(pf!=NULL){
         fprintf(pf,"Nombre d'etudiant : %d\n",nbEtudiant);
@@ -42,7 +42,7 @@ void SauvegarderTexte(Etudiant etudiant[], int nbEtudiant){
     fclose(pf);
     pf=NULL;
 }
-void chargerTexte(Etudiant etudiant[], int *nbEtudiant) {
+void chargerTexte(etudiant etudiant[], int *nbEtudiant) {
     FILE *pf = fopen("../notes.txt", "r");
     if (pf != NULL) {
         fscanf(pf, "Nombre d'etudiant : %d\n", nbEtudiant);
@@ -59,18 +59,18 @@ void chargerTexte(Etudiant etudiant[], int *nbEtudiant) {
     pf=NULL;
 }
 
-void SauvergarderBinaire(Etudiant etudiant[], int nbEtudiant) {
+void SauvergarderBinaire(etudiant etudiant[], int nbEtudiant) {
     FILE *pf = fopen("../notes.etus", "w"); // ce n'est donc maintenant plus un fichier txt donc on s'en fiche de son. ...
     fwrite(&nbEtudiant,sizeof(int),1,pf);
-    fwrite(etudiant,sizeof(Etudiant),nbEtudiant,pf);
+    fwrite(etudiant,sizeof(etudiant),nbEtudiant,pf);
     fclose(pf);
     pf=NULL;
 }
 
-void ChargerBinaire(Etudiant etudiant[], int *nbEtudiant){
+void ChargerBinaire(etudiant etudiant[], int *nbEtudiant){
     FILE *pf = fopen("../notes.etus", "r");
     fread(nbEtudiant,sizeof(int),1,pf);
-    fread(etudiant,sizeof(Etudiant),*nbEtudiant,pf);
+    fread(etudiant,sizeof(etudiant),*nbEtudiant,pf);
     fclose(pf);
     pf=NULL;
 }
@@ -78,7 +78,7 @@ void ChargerBinaire(Etudiant etudiant[], int *nbEtudiant){
 void TP9Ex1(){
     int fin = 0;
     int nbEtudiant; int choix=0;
-    Etudiant etudiant[NB_ETUDIANT];
+    etudiant etudiant[NB_ETUDIANT];
     while (!fin) {
         printf("Choisissez une section :\n1.Saisir\n2.Afficher\n3.SauvegarderTexte\n4.chargerTexte\n5.SauvergarderBinaire\n6.ChargerBinaire\n7.QUITTER\n\n\n\n");
         scanf("%d",&choix);

@@ -9,7 +9,7 @@ void InitialiserReelEntier(int* entier, float* reel){
 void TP6Ex1(){
     int entier; float reel;
     printf("Avant initialisation : \n ");
-    printf ("Entier = %d, Reel=  %f.2f \n \n", entier, reel);
+    printf ("Entier = %d, Reel=  %.2f \n \n", entier, reel);
     InitialiserReelEntier(&entier, &reel);
     printf("Apres initialisation : \n ");
     printf ("Entier = %d, Reel=  %f.2f", entier, reel);
@@ -89,7 +89,7 @@ void AficherTab(int tableau[], int TailleLogique) {
     printf("%d\n", tableau[TailleLogique - 1]);
 }
 
-int SommeEtProduitV1(int tableau[], int TailleLogique, int *pSomme) {
+int SommeEtProduitV1(int *tableau, int TailleLogique, int *pSomme) {
     int produit = 1;
     *pSomme = 0;
     for (int i = 0; i < TailleLogique; i++) {

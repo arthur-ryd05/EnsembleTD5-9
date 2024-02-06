@@ -1,6 +1,5 @@
 #include "TP5.h"
 #include <stdio.h>
-#include <stdlib.h>
 #define MAX 100
 #define MATRICE_LIGNE 3
 #define MATRICE_COLONNE 4
@@ -60,7 +59,7 @@ int demandeTailleLogique(int TaillePhysique) {
         printf("Quel est la taille logique de votre tableau \n");
         scanf("%d", &TailleLogique);
     } while (TailleLogique < 0 || TailleLogique > TaillePhysique);
-    return TailleLogique;
+
 }
 
 void remplirTableau(int TailleLogique, int tableau[]){
@@ -71,10 +70,10 @@ void remplirTableau(int TailleLogique, int tableau[]){
 }
 
 void afficherTab(int tableau[MAX], int TailleLogique) {
-    for (int i = 0; i < TailleLogique -1; i++) {
+    for (int i = 0; i < TailleLogique ; i++) {
         printf("%d, ", tableau[i]);
     }
-    printf("%d.\n", tableau[TailleLogique-1]);
+    printf("%d.\n", tableau[TailleLogique]);
 }
 
 int plusGrand(int tableau[], int TailleLogique) {
