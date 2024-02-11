@@ -5,7 +5,6 @@ struct MLSC{
     //data
     int id;
     char lettre;
-
     //link
     struct MLSC* next;
 };
@@ -20,22 +19,31 @@ void freeliste(MLSC** pListe);
 
 //CHANSON...
 
-typedef struct c{
-    //data
+struct chanson {
+    // data
     char titre [50];
     char artiste[30];
     unsigned int duree;
-    //link
-    struct c* next;
-}Chanson;
 
-typedef Chanson* Playlist;
-Chanson* initChanson(char* titre, char* artiste,
-                     unsigned int duree);
+    // link / lien (linkedlist)
+    struct chanson* next;
+    struct chanson* prev;
+};
 
-void lectureEnCours(Chanson* ajouer);
-void ajouterFileAttente(Playlist* fileAttente,
-                        char* titre, char*artiste, unsigned int duree);
+typedef struct chanson Chanson;
+typedef  Chanson * Playlist;
+
+Chanson * initChanson(char* titre, char* artiste, unsigned int duree);
+
+void addFirst(Playlist *fileAttente, char* titre, char* artiste, unsigned int duree);
+
+void addLast(Chanson **filaAttente,char* titre, char* artiste, unsigned int duree);
+
+void deletePlaylist(Chanson **fileattente);
+
+void deleteByArtist(Chanson **Playlist, char * artistName );
+
+void lectureEnCours(Chanson * ajouer);
 
 //TP COURS...
 
@@ -58,23 +66,15 @@ void afficherTableau(Etudiant * promo, int TailleLogique );
 
 
 void creationCellule(Cellule ** promo, int* tailleLogique);
-Cellule* funcAjoutEnTeteDeListe ( Cellule *liste,
-                                  const char *nom,
-                                  float moyenne );
-void procAjoutEnTeteDeListe ( Cellule **liste,
-                              const char *nom,
-                              float moyenne );
-Cellule* funcAjoutEnFinDeListe ( Cellule *liste,
-                                 const char *nom,
-                                 float moyenne );
-void procAjoutEnFinDeListe ( Cellule **promo,
-                             const char *nom,
-                             float moyenne );
+Cellule* funcAjoutEnTeteDeListe (Cellule *liste, const char *nom, float moyenne);
+void procAjoutEnTeteDeListe (Cellule **liste, const char *nom, float moyenne);
+Cellule* funcAjoutEnFinDeListe (Cellule *liste, const char *nom, float moyenne );
+void procAjoutEnFinDeListe (Cellule **promo, const char *nom,float moyenne );
 
-void afficherListeAvecWhile ( Cellule *liste );
-void afficherListeAvecFor ( Cellule *liste );
-void libererListe ( Cellule **pointeurSurListe );
-int nombreElementsRecurs ( Cellule * liste );
+void afficherListeAvecWhile (Cellule *liste);
+void afficherListeAvecFor (Cellule *liste);
+void libererListe (Cellule **pointeurSurListe);
+int nombreElementsRecurs (Cellule * liste);
 
 int TpListeChainerMain();
 
